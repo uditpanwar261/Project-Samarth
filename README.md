@@ -87,4 +87,3 @@ Rainfall Data – India Meteorological Department (IMD)
 Project Samarth demonstrates the power of open government data — enabling data-backed insights into the agricultural economy and its relation with climate change.
 This prototype shows how AI + data integration can help policymakers and researchers make informed, data-driven decisions.
 
-![App Screenshot](https://github.com/uditpanwar261/Project-Samarth/blob/main/project%20saamarth.png)
