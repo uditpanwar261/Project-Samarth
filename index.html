@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Samarth - Intelligent Q&A System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+
+  <div class="bg-white shadow-xl rounded-2xl p-6 w-3/4 max-w-2xl">
+    <h1 class="text-2xl font-bold text-center mb-4 text-blue-700">Project Samarth</h1>
+    <p class="text-gray-600 text-center mb-4">
+      Ask questions about crop production and rainfall data.
+    </p>
+
+    <!-- Input box and button -->
+    <div class="flex gap-2">
+      <input id="query" type="text" placeholder="e.g. Show rainfall trend for Odisha"
+        class="flex-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300">
+      <button onclick="askQuery()"
+        class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Ask</button>
+    </div>
+
+    <!-- Sample pre-added questions -->
+    <div class="mt-6">
+      <p class="text-gray-700 font-semibold mb-2">💡 Try one of these sample questions:</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <button class="bg-gray-200 hover:bg-gray-300 px-3 py-2 rounded-lg text-sm"
+                onclick="fillAndAsk('Show rainfall trend in Odisha')">
+          Show rainfall trend in Odisha
+        </button>
+        <button class="bg-gray-200 hover:bg-gray-300 px-3 py-2 rounded-lg text-sm"
+                onclick="fillAndAsk('Show rainfall trend in Kerala')">
+          Show rainfall trend in Kerala
+        </button>
+        <button class="bg-gray-200 hover:bg-gray-300 px-3 py-2 rounded-lg text-sm"
+                onclick="fillAndAsk('Show crop production trend for Wheat in Punjab')">
+          Show crop production trend for Wheat in Punjab
+        </button>
+        <button class="bg-gray-200 hover:bg-gray-300 px-3 py-2 rounded-lg text-sm"
+                onclick="fillAndAsk('Show crop production trend for Rice in Uttar Pradesh')">
+          Show crop production trend for Rice in Uttar Pradesh
+        </button>
+      </div>
+    </div>
+
+    <!-- Response section -->
+    <div id="response" class="mt-6 text-gray-800 text-center"></div>
+    <img id="graph" class="mt-4 mx-auto rounded-lg shadow-md hidden" width="400" />
+  </div>
+
+  <script>
+    async function askQuery() {
+      const query = document.getElementById("query").value;
+      const responseDiv = document.getElementById("response");
+      const graphImg = document.getElementById("graph");
+
+      responseDiv.innerHTML = "Processing...";
+      graphImg.classList.add("hidden");
+
+      const res = await fetch("/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query })
+      });
+
+      const data = await res.json();
+      responseDiv.innerHTML = `<p>${data.answer}</p>`;
+
+      if (data.graph) {
+        graphImg.src = "data:image/png;base64," + data.graph;
+        graphImg.classList.remove("hidden");
+      }
+    }
+
+    function fillAndAsk(question) {
+      document.getElementById("query").value = question;
+      askQuery();
+    }
+  </script>
+</body>
+</html>
