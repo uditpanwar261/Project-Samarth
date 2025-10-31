@@ -1,0 +1,14 @@
+Project-Samarth/
+│
+├── app.py
+├── requirements.txt
+│
+├── Dataset/
+│   ├── crop_production.json
+│   └── rainfall.csv
+│
+├── templates/
+│   └── index.html
+│
+├── static/
+│   └── samarth.js
