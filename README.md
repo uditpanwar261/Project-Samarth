@@ -7,6 +7,9 @@ It allows users to ask natural language questions related to **agriculture and c
 
 This project is developed as part of the **AI-for-Good Challenge**, focusing on India's agricultural economy and its correlation with climate behavior.
 
+## 🎥 Project Demo
+[Click here to watch the demo on Loom](https://www.loom.com/share/9b714a3e54c244459ce0e94f9e3d3faf)
+
 ---
 
 ## 🚀 Features
@@ -73,9 +76,6 @@ Query Example	What It Does
 “Show rainfall trend in Kerala”	Shows Kerala’s rainfall pattern
 “Show crop production trend in West Bengal”	Displays agricultural output over time
 “Show total output trend in Andhra Pradesh”	Combines JSON data to show total yield
-
-🎥 Loom Demo Video
-Watch the demo video here: [Loom Video](https://www.loom.com/share/9b714a3e54c244459ce0e94f9e3d3faf)
 
 🔗 Data Sources
 Crop Production Dataset – Ministry of Agriculture & Farmers Welfare
