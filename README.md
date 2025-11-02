@@ -75,7 +75,7 @@ Query Example	What It Does
 “Show total output trend in Andhra Pradesh”	Combines JSON data to show total yield
 
 🎥 Loom Demo Video
-👉 https://www.loom.com/share/9b714a3e54c244459ce0e94f9e3d3faf
+Watch the demo video here: [Loom Video](https://www.loom.com/share/9b714a3e54c244459ce0e94f9e3d3faf)
 
 🔗 Data Sources
 Crop Production Dataset – Ministry of Agriculture & Farmers Welfare
